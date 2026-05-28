@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cloud Nine Vapor | 21+ Vape Shop Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="age-gate" id="ageGate" role="dialog" aria-modal="true" aria-labelledby="ageTitle">
+      <div class="age-panel">
+        <p class="kicker">Age Restricted</p>
+        <h1 id="ageTitle">Are you 21 or older?</h1>
+        <p>This demo shop is intended only for adults of legal purchasing age. Products shown are sample inventory for design purposes.</p>
+        <div class="age-actions">
+          <button class="button primary" id="confirmAge" type="button">Yes, enter</button>
+          <button class="button ghost" id="denyAge" type="button">No, leave</button>
+        </div>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Cloud Nine Vapor home">
+        <span class="brand-mark">C9</span>
+        <span>
+          <strong>Cloud Nine Vapor</strong>
+          <small>21+ specialty shop</small>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#shop">Shop</a>
+        <a href="#flavors">Flavors</a>
+        <a href="#visit">Visit</a>
+      </nav>
+      <button class="cart-button" id="openCart" type="button" aria-label="Open cart">
+        <span>Cart</span>
+        <strong id="cartCount">0</strong>
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <img src="assets/shop-hero.png" alt="Generic sealed vape products arranged on a modern retail counter">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <p class="kicker">Downtown pickup • ID checked at checkout</p>
+          <h1>Curated vapor products for adults 21+</h1>
+          <p class="hero-copy">Browse sealed devices, e-liquids, coils, and accessories from a clean demo storefront built for quick local pickup.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#shop">Shop products</a>
+            <a class="button soft" href="#visit">Store hours</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="service-strip" aria-label="Store highlights">
+        <div>
+          <strong>21+ Only</strong>
+          <span>Government ID required for all orders.</span>
+        </div>
+        <div>
+          <strong>Local Pickup</strong>
+          <span>Reserve online and pay in-store.</span>
+        </div>
+        <div>
+          <strong>Fresh Stock</strong>
+          <span>Inventory organized by device, flavor, and strength.</span>
+        </div>
+      </section>
+
+      <section class="shop-section" id="shop">
+        <div class="section-heading">
+          <div>
+            <p class="kicker">Featured inventory</p>
+            <h2>Shop the demo shelf</h2>
+          </div>
+          <div class="fulfillment-toggle" role="group" aria-label="Fulfillment method">
+            <button class="active" type="button" data-mode="Pickup">Pickup</button>
+            <button type="button" data-mode="Delivery">Delivery</button>
+          </div>
+        </div>
+
+        <div class="filter-row" aria-label="Product filters">
+          <button class="filter active" type="button" data-filter="all">All</button>
+          <button class="filter" type="button" data-filter="devices">Devices</button>
+          <button class="filter" type="button" data-filter="e-liquid">E-liquid</button>
+          <button class="filter" type="button" data-filter="accessories">Accessories</button>
+        </div>
+
+        <div class="product-grid" id="productGrid" aria-live="polite"></div>
+      </section>
+
+      <section class="flavor-section" id="flavors">
+        <div class="section-heading">
+          <div>
+            <p class="kicker">Flavor finder</p>
+            <h2>Built for fast browsing</h2>
+          </div>
+          <p>Use the flavor notes and stock badges to quickly compare products without clutter.</p>
+        </div>
+        <div class="flavor-board">
+          <article>
+            <span class="swatch mint"></span>
+            <h3>Cool & crisp</h3>
+            <p>Mint, menthol, aloe, and iced fruit profiles.</p>
+          </article>
+          <article>
+            <span class="swatch berry"></span>
+            <h3>Fruit forward</h3>
+            <p>Mango, berry, citrus, melon, and tropical blends.</p>
+          </article>
+          <article>
+            <span class="swatch classic"></span>
+            <h3>Classic blends</h3>
+            <p>Tobacco-inspired and smooth dessert-style profiles.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="visit-section" id="visit">
+        <div>
+          <p class="kicker">Visit the shop</p>
+          <h2>Cloud Nine Vapor</h2>
+          <p>128 Market Street, Suite 4<br>Open daily for adult customers 21+.</p>
+        </div>
+        <div class="hours-list" aria-label="Store hours">
+          <div><span>Mon-Fri</span><strong>10:00 AM - 9:00 PM</strong></div>
+          <div><span>Saturday</span><strong>11:00 AM - 10:00 PM</strong></div>
+          <div><span>Sunday</span><strong>12:00 PM - 7:00 PM</strong></div>
+        </div>
+      </section>
+    </main>
+
+    <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
+      <div class="cart-header">
+        <div>
+          <p class="kicker">Your order</p>
+          <h2 id="cartModeTitle">Pickup cart</h2>
+        </div>
+        <button class="icon-button" id="closeCart" type="button" aria-label="Close cart">×</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer">
+        <div><span>Subtotal</span><strong id="cartSubtotal">$0.00</strong></div>
+        <p>Taxes and age verification are completed in-store. This is a non-transactional demo.</p>
+        <button class="button primary full" type="button">Reserve for pickup</button>
+      </div>
+    </aside>
+    <div class="scrim" id="scrim"></div>
+
+    <footer class="site-footer">
+      <p>Demo only. Nicotine is addictive. Sale restricted to adults 21+ where legal.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
